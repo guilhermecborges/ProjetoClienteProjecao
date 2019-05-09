@@ -6,7 +6,7 @@ $senha = "";
 $banco = "projeto_cliente";
 $conecta = new mysqli($servidor, $usuario, $senha, $banco);
 
-require_once "../entidades/entidadeUsuario.php";
+require_once "../model/entidadeUsuario.php";
 
 $usu = new Usuario;
 $usu->setLogin($_POST['login']);
@@ -20,9 +20,9 @@ function login($login, $senha, $conecta) {
     if ($resultado->num_rows == 1) {
         $_SESSION['login_user'] = $login;
         $_SESSION['login_pass'] = $senha;
-        header("Location: ../paginaInicial/paginaInicial.html");
+        header("Location: ../view/paginaInicial/paginaInicial.html");
     } else {
-        header("Location: ../login/login.html?error=1");
+        header("Location: ../view/login/login.html?error=1");
     }
 }
 
