@@ -5,25 +5,29 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" 
               href="../../public/css/component.css" media="screen" />
+        <link rel="stylesheet" type="text/css" 
+              href="../../public/css/bootstrap.css" media="screen" />
     </head>
     <body class="teste">
         <form action="../../controller/login.php" method="post">
-            <fieldset class="fieldset-login">
-                <div class="row">
-                    <label for="login" style="color: black">Login:</label>
-                    <input id="login" type="text" name="login" 
-                           size="30" maxlength="200"/>
-                </div>
-                <br/>
-                <div class="row">
-                    <label for="senha" style="color: black">Senha:</label>
-                    <input id="senha" type="password" 
-                           name="senha" size="30" maxlength="20" 
-                           required="" class="button-login"/>
-                </div>
-                <br/>
-                <div class="div-button-login">
-                    <input type="submit" value="ENTRAR" class="button-login"/>
+            <fieldset class="">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="login">Login:</label>
+                            <input id="login" type="text" name="login" 
+                                   size="30" maxlength="200" class="form-control form-control-sm"/>
+                        </div>
+                        <div class="col-4">
+                            <label for="senha">Senha:</label>
+                            <input id="senha" type="password" 
+                                   name="senha" size="30" maxlength="20" 
+                                   required="" class="form-control form-control-sm"/>
+                        </div>
+                        <div class="col-2">
+                            <input type="submit" value="ENTRAR" class="btn btn-primary"/>
+                        </div>
+                    </div>
                 </div>
             </fieldset>
         </form>
