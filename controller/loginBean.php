@@ -4,35 +4,29 @@ require_once "../model/usuarioEntity.php";
 require_once "../service/loginService.php";
 
 $loginService = new LoginService();
-$conecta = $loginService->iniciaConexao();
 LoginBean::verificaUsuario();
+session_start();
         
 class LoginBean{
         
-    function verificaUsuario(){
+    public function verificaUsuario(){
         $usu = new Usuario;
         $usu->setLogin($_POST['user_login']);
         $usu->setSenha($_POST['user_pass']);
-        if($usu->getLogin() != NULL && $usu->getSenha() != null){
-            echo login($usu->getLogin(), $usu->getSenha(), $conecta);
-        }else{
-            echo "teste";
-        }
+        LoginBean::login($usu->getLogin(), $usu->getSenha());
+        
     }
 
-    function login($login, $senha, $conecta) {
-        $sql = "select * from usuario where login ='" . $login . "' and senha = '" . $senha . "'";
-        $resultado = $conecta->query($sql);
-        if ($resultado->num_rows == 1) {
+    public function login($login, $senha) {
+        $sql = LoginService::verificaUsuario($login, $senha);
+        if ($sql == 1) {
             $_SESSION['login_user'] = $login;
             $_SESSION['login_pass'] = $senha;
-            header("Location: ../view/paginaInicial/paginaInicial.html");
+            header("Location: ../view/paginaInicial/pgTable.html");
         } else {
             header("Location: ../view/login/login.html?error=1");
         }
     }
 }
-//$obj_Usuario = new Usuario();
-//echo "<script type='text/javascript'>alert('$message');</script>"
 ?>
 
