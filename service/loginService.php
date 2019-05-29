@@ -11,5 +11,13 @@ class LoginService{
         return LoginRepository::verificaUsuario($login,$senha);
     }
     
+    public function verificaUsuarioExistente($login){
+        return LoginRepository::verificaUsuarioExistente($login);
+    }
+
+    public static function insereUsuario($login, $senha) {
+        LoginRepository::insereUsuario($login,$senha);
+    }
+
 }
 ?>
