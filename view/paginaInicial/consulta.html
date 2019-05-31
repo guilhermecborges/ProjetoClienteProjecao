@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <title>Página de consulta</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../public/css/consulta.css">
+  <script type="text/javascript" src="../../public/js/consultaJq.js"></script>
+  
+</head>
+<body>
+
+<div class="container">
+  <h2>Tabela de Pesquisa</h2>
+  <p>Pesquise por nome completo, nome de usuário, RG ou E-MAIL: </p>  
+  <input class="form-control" id="myInput" type="text" placeholder="Pesquisar..">
+  <br>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Nome completo</th>
+        <th>Nome de usuário</th>
+        <th>RG</th>
+        <th>Email</th>
+        <th>Ação</th>
+      </tr>
+    </thead>
+    <tbody id="myTable">
+      <tr>
+        <td><!--Codigo do PHP exemplo= <?php echo $dado['usu_nome']; ?>-->John da silva Junior</td>
+        <td><!--Exemplo=<?php echo $dado['usu_usuNome'];?>-->Jhons2</td>
+        <td><!--Exemplo=<?php echo $dado['usu_RG'];?>-->123123</td>
+        <td><!--Exemplo=<?php echo $dado['usu_email'];?>-->john@example.com</td>
+        <td>
+            <a href="editar.php?codigo=<?php echo $dado['usu_codigo']; ?>"><input type="button" value="Editar"></a>
+            <a href="excluir.php?codigo=<?php echo $dado['usu_codigo']; ?>"><input type="button" value="Excluir"></a>
+        </td>
+      </tr>
+      <tr>
+        <td>Mary Suzana Xirley Socorro</td>
+        <td>Moena</td>
+        <td>123123</td>
+        <td>mary@mail.com</td>
+        <td>
+            <a href="editar.php"><input type="button" value="Editar"></a>
+            <a href="excluir.php"><input type="button" value="Excluir"></a>
+        </td>
+      </tr>
+      <tr>
+        <td>Julyscreuza Junia Pedra Joana</td>
+        <td>Dooley</td>
+        <td>345345</td>
+        <td>july@greatstuff.com</td>
+        <td>
+            <a href="editar.php"><input type="button" value="Editar"></a>
+            <a href="excluir.php"><input type="button" value="Excluir"></a>
+        </td>
+      </tr>
+      <tr>
+        <td>Anja da Guarda de Deus Nascimento</td>
+        <td>Ravendale</td>
+        <td>5767</td>
+        <td>a_r@test.com</td>
+        <td>
+            <a href="editar.php"><input type="button" value="Editar"></a>
+            <a href="excluir.php"><input type="button" value="Excluir"></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
+</body>
+</html>
