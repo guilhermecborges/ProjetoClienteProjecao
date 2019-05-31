@@ -75,22 +75,21 @@
                         <!-- TABS CONTENT -->
                     	<div class="tabs-content">
                             <!-- TABS CONTENT LOGIN -->
-                            <form action="">
+                            <form class="login-form" method="POST" action="../../controller/login.php">
                                 <div id="login-tab-content" class="active">
-                                    <form class="login-form" action="" method="post">
-                                        <input type="text" class="input" id="user_login" autocomplete="off" placeholder="Nome de usuário">
-                                        <input type="password" class="input" id="user_pass" autocomplete="off" placeholder="Senha">
-                                        <input type="submit" class="button" value="Entrar">
+                                    <form class="login-form">
+                                        <input type="text" class="input" name="user_login" autocomplete="off" placeholder="Nome de usuário">
+                                        <input type="password" class="input" name="user_pass" autocomplete="off" placeholder="Senha">
+                                        <input type="submit" value="Entrar" name="entrar">
                                     </form>
-                                   
                                 </div>
                             </form>
                             <!-- TABS CONTENT SIGNUP -->
                     		<div id="signup-tab-content">
-                    			<form class="signup-form" action="" method="post">
-                    				<input type="text" class="input" id="user_name" autocomplete="off" placeholder="Nome de Usuário">
-                    				<input type="password" class="input" id="user_pass" autocomplete="off" placeholder="Senha">
-                    				<input type="submit" class="button" value="Cadastrar">
+                    			<form class="signup-form" method="POST" action="../../controller/login.php">
+                                            <input type="text" class="input" name="user_name" autocomplete="off" required="" placeholder="Nome de Usuário">
+                    				<input type="password" class="input" name="user_pass" autocomplete="off" required="" placeholder="Senha">
+                    				<input type="submit" name="cadastrar" value="Cadastrar">
                     			</form>
                     			
                     		</div>
