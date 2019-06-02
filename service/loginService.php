@@ -1,5 +1,5 @@
 <?php
-require_once "../repository/loginRepository.php";
+include($_SERVER['DOCUMENT_ROOT']."/ProjetoClienteProjecao/repository/loginRepository.php");
 
 class LoginService{
     
