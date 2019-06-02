@@ -3,9 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/ProjetoClienteProjecao/view/paginaInicial/consulta.html</file>
-            <file>file:/C:/xampp/htdocs/ProjetoClienteProjecao/view/paginaInicial/pgTable.html</file>
-            <file>file:/C:/xampp/htdocs/ProjetoClienteProjecao/view/login/login.html</file>
+            <file>file:/C:/xampp/htdocs/ProjetoClienteProjecao/repository/clienteRepository.php</file>
+            <file>file:/C:/xampp/htdocs/ProjetoClienteProjecao/controller/cliente.php</file>
+            <file>file:/C:/xampp/htdocs/ProjetoClienteProjecao/view/cadastro/cadastro.html</file>
+            <file>file:/C:/xampp/htdocs/ProjetoClienteProjecao/repository/loginRepository.php</file>
+            <file>file:/C:/xampp/htdocs/ProjetoClienteProjecao/service/clienteService.php</file>
+            <file>file:/C:/xampp/htdocs/ProjetoClienteProjecao/service/loginService.php</file>
+            <file>file:/C:/xampp/htdocs/ProjetoClienteProjecao/controller/loginBean.php</file>
         </group>
     </open-files>
 </project-private>

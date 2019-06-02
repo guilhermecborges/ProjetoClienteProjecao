@@ -15,6 +15,13 @@ if (array_key_exists('submit', $_POST)) {
     ClienteController::cadastraCliente();
 }
 
+$id = $_GET['id'];
+if($id != NULL){
+    ClienteController::excluiCliente($id);
+}else{
+    header("Location: ../../consulta/consulta.php");
+}
+
 class ClienteController {
 
     function cadastraCliente() {
@@ -26,7 +33,12 @@ class ClienteController {
         $cli->setEndereco($_POST['address']);
 
         ClienteService::cadastraUsuario($cli->getNomeCompleto(), $cli->getNomeUsuario(), $cli->getRg(), $cli->getEmail(), $cli->getEndereco());
-        header("Location: ../view/paginaInicial/consulta.php");
+        header("Location: ../view/consulta/consulta.php");
+    }
+    
+    function excluiCliente($id){
+        ClienteService::excluiCliente($id);
+        header("Location: ../view/consulta/consulta.php");
     }
 
 }
