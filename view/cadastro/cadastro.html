@@ -15,22 +15,23 @@
             <div class="signup-content">
                 
                 <div class="signup-form">
-                    <form method="POST" class="register-form" id="register-form">
+                    <a href="../consulta/consulta.php"><input type="button" name="voltar" value="Voltar" class="submit"/></a>
+                    <form method="POST" class="register-form" action="../../controller/cliente.php" id="register-form">
                         <h2>Terminar cadastro</h2>
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="name">Nome completo :</label>
-                                <input type="text" name="name" id="name" required/>
+                                <input type="text" name="nameCompleto" id="name" required/>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="name">Nome de usuário:</label>
-                                <input type="text" name="name" id="name" required/>
+                                <input type="text" name="nameUsuario" id="name" required/>
                             </div>
                             <div class="form-group">
                                 <label >RG:</label>
-                                <input type="number" required/>
+                                <input type="number" name="rg" required/>
                             </div>
                         </div>
                         <div class="form-group">
@@ -41,7 +42,7 @@
                             <label for="address">Endereço:</label>
                             <input type="text" name="address" id="address" required/>
                         </div>
-                        
+                        <br/>
                         <div class="form-submit">
                             <input type="submit" value="Limpar Tudo" class="submit" name="Limpar" id="reset" />
                             <input type="submit" value="Terminar Cadastro" class="submit" name="submit" id="submit" />
