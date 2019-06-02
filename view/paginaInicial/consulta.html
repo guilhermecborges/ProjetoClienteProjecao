@@ -12,7 +12,7 @@
 
 <div class="container">
   <h2>Tabela de Pesquisa</h2>
-  <p>Pesquise por nome completo, nome de usuário, RG ou E-MAIL: </p>  
+  <p>Pesquise por nome completo, nome de usuário, RG, E-MAIL ou Endereço: </p>  
   <input class="form-control" id="myInput" type="text" placeholder="Pesquisar..">
   <br>
   <table class="table table-bordered table-striped">
@@ -22,6 +22,7 @@
         <th>Nome de usuário</th>
         <th>RG</th>
         <th>Email</th>
+        <th>Endereço</th>
         <th>Ação</th>
       </tr>
     </thead>
@@ -31,6 +32,7 @@
         <td><!--Exemplo=<?php echo $dado['usu_usuNome'];?>-->Jhons2</td>
         <td><!--Exemplo=<?php echo $dado['usu_RG'];?>-->123123</td>
         <td><!--Exemplo=<?php echo $dado['usu_email'];?>-->john@example.com</td>
+        <td>Rua Grito dos Desesperados, casa 999</td>
         <td>
             <a href="editar.php?codigo=<?php echo $dado['usu_codigo']; ?>"><input type="button" value="Editar"></a>
             <a href="excluir.php?codigo=<?php echo $dado['usu_codigo']; ?>"><input type="button" value="Excluir"></a>
@@ -41,6 +43,7 @@
         <td>Moena</td>
         <td>123123</td>
         <td>mary@mail.com</td>
+        <td>Condomínio Paz do Apocalipse Meteórico, cj 69, casa 96</td>
         <td>
             <a href="editar.php"><input type="button" value="Editar"></a>
             <a href="excluir.php"><input type="button" value="Excluir"></a>
@@ -51,6 +54,7 @@
         <td>Dooley</td>
         <td>345345</td>
         <td>july@greatstuff.com</td>
+        <td></td>
         <td>
             <a href="editar.php"><input type="button" value="Editar"></a>
             <a href="excluir.php"><input type="button" value="Excluir"></a>
@@ -61,13 +65,17 @@
         <td>Ravendale</td>
         <td>5767</td>
         <td>a_r@test.com</td>
+        <td></td>
         <td>
             <a href="editar.php"><input type="button" value="Editar"></a>
             <a href="excluir.php"><input type="button" value="Excluir"></a>
         </td>
       </tr>
+      
     </tbody>
+    
   </table>
+  <a href="novo.php"><input type="button" value="Novo"></a>
 </div>
 
 <script>
