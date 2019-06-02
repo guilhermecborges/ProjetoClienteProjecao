@@ -49,13 +49,17 @@
                         $dyn_table .= '<td>' . $nome_usuario . '</td>';
                         $dyn_table .= '<td>' . $rg . '</td>';
                         $dyn_table .= '<td>' . $email . '</td>';
-                        $dyn_table .= '<td>' . $endereco . '</td></tr>';
+                        $dyn_table .= '<td>' . $endereco . '</td>';
+                        $dyn_table .= "<td><a href='../cadastro/cadastro.php?id=$id'><input type='submit' name='editar' value='Editar'></a>";
+                        $dyn_table .= "<a href='../../controller/cliente.php?id=$id'><input type='submit' name='excluir' value='Excluir'></a></td></tr>"; 
                     } else {
                         $dyn_table .= '<tr><td>' . $nome_completo . '</td>';
                         $dyn_table .= '<td>' . $nome_usuario . '</td>';
                         $dyn_table .= '<td>' . $rg . '</td>';
                         $dyn_table .= '<td>' . $email . '</td>';
-                        $dyn_table .= '<td>' . $endereco . '</td></tr>';
+                        $dyn_table .= '<td>' . $endereco . '</td>';
+                        $dyn_table .= "<td><a href='../cadastro/cadastro.php?id=$id'><input type='submit' name='editar' value='Editar'></a>";
+                        $dyn_table .= "<a href='../../controller/cliente.php?id=$id'><input type='submit' name='excluir' value='Excluir'></a></td></tr>"; 
                     }
                     $i++;
                 }
