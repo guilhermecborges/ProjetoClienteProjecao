@@ -1,6 +1,7 @@
 <?php
 
 require_once "../repository/loginRepository.php";
+require_once "../model/clienteEntity.php";
 
 class ClienteRepository extends LoginRepository{
     
@@ -14,7 +15,19 @@ class ClienteRepository extends LoginRepository{
         }
         $conecta->close();
     }
-    
+
+    public static function excluiCliente($id) {
+        $conecta = LoginRepository::iniciaConexao();
+        $sql = "DELETE FROM CLIENTE WHERE ID_CLIENTE = ?";
+        if($stmt = $conecta->prepare($sql)){
+            $stmt->bind_param('i', $id);
+            $stmt->execute();
+            $stmt->close();
+            $conecta->close();
+        }
+        $conecta->close();
+    }
+
 }
 
 ?>
