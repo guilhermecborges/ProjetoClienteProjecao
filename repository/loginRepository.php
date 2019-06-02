@@ -28,6 +28,7 @@ class LoginRepository{
             $stmt->bind_param('s', $login);
             $retorno = $stmt->execute();
             $stmt->bind_result($retorno);
+            $stmt->fetch();
             return $retorno;
             $stmt->close();
         }
@@ -38,11 +39,13 @@ class LoginRepository{
     public static function insereUsuario($login, $senha) {
         $conecta = LoginRepository::iniciaConexao();
         $sql = "INSERT INTO USUARIO(LOGIN,SENHA,TIPO_PERFIL) VALUES (?,?,'1')";
-        $stmt = $conecta->prepare($sql);
-        $stmt->bind_param('ss', $login,$senha);
-        $stmt->execute();
-        $stmt->close();
+        if($stmt = $conecta->prepare($sql)){
+            $stmt->bind_param('ss', $login,$senha);
+            $stmt->execute();
+            $stmt->close();
+        }
         $conecta->close();
+        
     }
 
 }

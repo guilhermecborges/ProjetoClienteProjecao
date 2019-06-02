@@ -29,7 +29,7 @@ class LoginBean{
     public function login($login, $senha) {
         $countUsuario = LoginService::verificaUsuario($login, $senha);
         if ($countUsuario == 1) {
-            header("Location: ../view/paginaInicial/pgTable.html");
+            header("Location: ../view/paginaInicial/consulta.php");
         } else {
             header("Location: ../view/login/login.html?error=1");
         }
@@ -45,10 +45,10 @@ class LoginBean{
          		 </script>");
             }else{
                 LoginService::insereUsuario($login,$senha);
-                header("Location: ../view/login/login.html");
                 echo "<script language='JavaScript'>
-          		alert('Usuario cadastrado Com sucesso');
-         		</script>";
+                        window.location.href='javascript:history.go(-1)'
+          		alert('Usuario cadastrado com Sucesso!');
+         		 </script>";
             }
         } catch (Exception $e){
             echo $e->getMessage();
