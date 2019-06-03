@@ -1,10 +1,10 @@
 <?php
-
+session_start();
 require_once "../model/clienteEntity.php";
 require_once "../service/clienteService.php";
 
-if (array_key_exists('Voltar', $_POST)) {
-    header("Location: ../view/paginaInicial/consulta.php");
+if($_SESSION["USUARIO_LOGADO"] == NULL){
+	 header("Location: ../view/login/login.html?error=1");
 }
 
 if (array_key_exists('Limpar', $_POST)) {
@@ -12,14 +12,19 @@ if (array_key_exists('Limpar', $_POST)) {
 }
 
 if (array_key_exists('submit', $_POST)) {
-    ClienteController::cadastraCliente();
+	if($_POST['idCliente'] == NULL){
+		ClienteController::cadastraCliente();
+	}else{
+		ClienteController::alteraCliente($_POST['idCliente']);
+	}	
+    
 }
 
 $id = $_GET['id'];
 if($id != NULL){
     ClienteController::excluiCliente($id);
 }else{
-    header("Location: ../../consulta/consulta.php");
+    header("Location: ../view/consulta/consulta.php");
 }
 
 class ClienteController {
@@ -33,11 +38,28 @@ class ClienteController {
         $cli->setEndereco($_POST['address']);
 
         ClienteService::cadastraUsuario($cli->getNomeCompleto(), $cli->getNomeUsuario(), $cli->getRg(), $cli->getEmail(), $cli->getEndereco());
-        header("Location: ../view/consulta/consulta.php");
+		$_SESSION["msg"] = "Cadastrado com sucesso";
+       header("Location: ../view/consulta/consulta.php");
+
     }
+	
+	function alteraCliente($codigo){
+		$cli = new Cliente();
+        $cli->setNomeCompleto($_POST['nameCompleto']);
+        $cli->setNomeUsuario($_POST['nameUsuario']);
+        $cli->setRg($_POST['rg']);
+        $cli->setEmail($_POST['email']);
+        $cli->setEndereco($_POST['address']);
+		$cli->setCodigo($codigo);
+		
+		ClienteService::alteraCliente($cli);
+		$_SESSION["msg"] = "Alterado com sucesso";
+		header("Location: ../view/consulta/consulta.php");
+	}	
     
     function excluiCliente($id){
         ClienteService::excluiCliente($id);
+		$_SESSION["msg"] = "Excluido com sucesso";
         header("Location: ../view/consulta/consulta.php");
     }
 
