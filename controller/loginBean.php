@@ -1,5 +1,6 @@
 <?php
 session_start(); 
+error_reporting(0);
 require_once "../model/usuarioEntity.php";
 require_once "../service/loginService.php";
 

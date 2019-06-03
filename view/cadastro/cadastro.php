@@ -10,22 +10,47 @@
 </head>
 <?php 
     require_once ("../../service/loginService.php");
+	error_reporting(0);
+	session_start();
+					if($_SESSION["USUARIO_LOGADO"] == NULL){
+						header("Location: ../login/login.html?error=1");
+					}
                     $conecta = LoginService::iniciaConexao();
 					if($_GET['id'] != null){
 						$id = $_GET['id'];
 						$sql = $conecta->query("SELECT ID_CLIENTE,NOME_COMPLETO,NOME_USUARIO,RG,EMAIL,ENDERECO FROM cliente where ID_CLIENTE =". $id);
 						$cliente = $sql->fetch_assoc();
 					}	
+					if (array_key_exists('Sair', $_POST)) {
+						$_SESSION["USUARIO_LOGADO"] = NULL;
+						header("Location: ../login/login.html?error=1");
+					}
 			
 ?>
 <body>
 
     <div class="main">
         <div class="container" ">
+
             <div class="signup-content">
                 
                 <div class="signup-form">
-                    <a href="../consulta/consulta.php"><input type="button" name="voltar" value="Voltar" class="submit"/></a>
+				
+				<form name="sair" method="POST" >
+					<input type="submit" value="Sair" name="Sair" style="
+						margin-left: 89%;
+						margin-top: 0px;
+						color: green;
+						border-radius: 4px;
+						font-size: 19px;
+						background-color: greenyellow;
+						width: 77px;
+						">
+				</form>
+                    <a href="../consulta/consulta.php"><input type="button" name="voltar" value="Voltar" class="submit" style="
+    float: left;
+    margin-top: -45px;
+"></a>
                     <form method="POST" class="register-form" action="../../controller/cliente.php" id="register-form">
 					<input type="hidden" name="idCliente" value="<?php echo $cliente['ID_CLIENTE'] ?>"/>
                         <h2>Terminar cadastro</h2>

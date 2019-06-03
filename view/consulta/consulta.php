@@ -27,6 +27,7 @@
             <br>
 			<?php 
 			session_start();
+			error_reporting(0);
 			
 			if (array_key_exists('Sair', $_POST)) {
 				$_SESSION["USUARIO_LOGADO"] = NULL;
@@ -98,7 +99,7 @@
                         echo $dyn_table;
                     }
                     ?>
-                <a href="../cadastro/cadastro.html"><input type="button" value="Novo"></a>
+                <a href="../cadastro/cadastro.php"><input type="button" value="Novo"></a>
         </div>
 
         <script>
