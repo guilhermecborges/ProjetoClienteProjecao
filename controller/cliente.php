@@ -8,10 +8,6 @@ if($_SESSION["USUARIO_LOGADO"] == NULL){
 	 header("Location: ../view/login/login.html?error=1");
 }
 
-if (array_key_exists('Limpar', $_POST)) {
-    header("Refresh: 0;url=../view/cadastro/cadastro.html");
-}
-
 if (array_key_exists('submit', $_POST)) {
 	if($_POST['idCliente'] == NULL){
 		ClienteController::cadastraCliente();
