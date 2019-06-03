@@ -80,9 +80,9 @@
                         </div>
                         <br/>
                         <div class="form-submit">
-                            <input type="submit" value="Limpar Tudo" class="submit" name="Limpar" id="reset" />
                             <input type="submit" value="Terminar Cadastro" class="submit" name="submit" id="submit" />
                         </div>
+                        <br/>
                         <div class="signup-img" >
                             <iframe
                                 width="600"

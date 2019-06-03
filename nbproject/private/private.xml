@@ -3,12 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/ProjetoClienteProjecao/view/cadastro/cadastro.php</file>
+            <file>file:/C:/xampp/htdocs/ProjetoClienteProjecao/public/js/cadastroReset.js</file>
+            <file>file:/C:/xampp/htdocs/ProjetoClienteProjecao/public/css/cadastro.css</file>
             <file>file:/C:/xampp/htdocs/ProjetoClienteProjecao/view/consulta/consulta.php</file>
-            <file>file:/C:/xampp/htdocs/ProjetoClienteProjecao/repository/clienteRepository.php</file>
-            <file>file:/C:/xampp/htdocs/ProjetoClienteProjecao/controller/cliente.php</file>
+            <file>file:/C:/xampp/htdocs/ProjetoClienteProjecao/view/login/login.html</file>
             <file>file:/C:/xampp/htdocs/ProjetoClienteProjecao/view/cadastro/cadastro.html</file>
-            <file>file:/C:/xampp/htdocs/ProjetoClienteProjecao/service/clienteService.php</file>
+            <file>file:/C:/xampp/htdocs/ProjetoClienteProjecao/repository/loginRepository.php</file>
+            <file>file:/C:/xampp/htdocs/ProjetoClienteProjecao/index.php</file>
         </group>
     </open-files>
 </project-private>
