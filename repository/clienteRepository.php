@@ -15,6 +15,17 @@ class ClienteRepository extends LoginRepository{
         }
         $conecta->close();
     }
+	
+	function alteraCliente($cli){
+        $conecta = LoginRepository::iniciaConexao();
+        $sql = "UPDATE CLIENTE SET NOME_COMPLETO = ?, NOME_USUARIO = ?, RG = ?, EMAIL = ?, ENDERECO= ? WHERE ID_CLIENTE = ?";
+        if($stmt = $conecta->prepare($sql)){
+            $stmt->bind_param('ssissi', $cli->getNomeCompleto(),$cli->getNomeUsuario(),$cli->getRg(),$cli->getEmail(),$cli->getEndereco(),$cli->getCodigo());
+            $stmt->execute();
+            $stmt->close();
+        }
+        $conecta->close();
+    }
 
     public static function excluiCliente($id) {
         $conecta = LoginRepository::iniciaConexao();

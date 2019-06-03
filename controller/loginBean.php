@@ -1,5 +1,5 @@
 <?php
-    
+session_start(); 
 require_once "../model/usuarioEntity.php";
 require_once "../service/loginService.php";
 
@@ -29,7 +29,9 @@ class LoginBean{
     public function login($login, $senha) {
         $countUsuario = LoginService::verificaUsuario($login, $senha);
         if ($countUsuario == 1) {
-            header("Location: ../view/paginaInicial/consulta.php");
+			
+			$_SESSION["USUARIO_LOGADO"]  = base64_encode($login.$senha);
+            header("Location: ../view/consulta/consulta.php");
         } else {
             header("Location: ../view/login/login.html?error=1");
         }

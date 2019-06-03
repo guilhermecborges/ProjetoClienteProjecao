@@ -8,6 +8,16 @@
     <!-- Main css -->
     <link rel="stylesheet" href="../../public/css/cadastro.css">
 </head>
+<?php 
+    require_once ("../../service/loginService.php");
+                    $conecta = LoginService::iniciaConexao();
+					if($_GET['id'] != null){
+						$id = $_GET['id'];
+						$sql = $conecta->query("SELECT ID_CLIENTE,NOME_COMPLETO,NOME_USUARIO,RG,EMAIL,ENDERECO FROM cliente where ID_CLIENTE =". $id);
+						$cliente = $sql->fetch_assoc();
+					}	
+			
+?>
 <body>
 
     <div class="main">
@@ -17,30 +27,31 @@
                 <div class="signup-form">
                     <a href="../consulta/consulta.php"><input type="button" name="voltar" value="Voltar" class="submit"/></a>
                     <form method="POST" class="register-form" action="../../controller/cliente.php" id="register-form">
+					<input type="hidden" name="idCliente" value="<?php echo $cliente['ID_CLIENTE'] ?>"/>
                         <h2>Terminar cadastro</h2>
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="name">Nome completo :</label>
-                                <input type="text" name="nameCompleto" id="name" required/>
+                                <input type="text" value="<?php echo $cliente['NOME_COMPLETO'] ?>" name="nameCompleto" id="name" required/>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="name">Nome de usuário:</label>
-                                <input type="text" name="nameUsuario" id="name" required/>
+                                <input type="text" value="<?php echo $cliente['NOME_USUARIO'] ?>" name="nameUsuario" id="name" required/>
                             </div>
                             <div class="form-group">
                                 <label >RG:</label>
-                                <input type="number" name="rg" required/>
+                                <input type="number" value="<?php echo $cliente['RG'] ?>" name="rg" required/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="email">E-mail:</label>
-                            <input type="email" name="email" id="email" />
+                            <input type="email" value="<?php echo $cliente['EMAIL'] ?>" name="email" id="email" />
                         </div>  
                         <div class="form-group">
                             <label for="address">Endereço:</label>
-                            <input type="text" name="address" id="address" required/>
+                            <input type="text" value="<?php echo $cliente['ENDERECO'] ?>" name="address" id="address" required/>
                         </div>
                         <br/>
                         <div class="form-submit">
