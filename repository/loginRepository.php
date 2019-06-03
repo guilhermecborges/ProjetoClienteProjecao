@@ -8,16 +8,20 @@ class LoginRepository{
 
     public function verificaUsuario($login, $senha) {
         $conecta = LoginRepository::iniciaConexao();
-        $sql = "SELECT COUNT(1) FROM USUARIO WHERE LOGIN = ? AND SENHA = ? ";
-        if($stmt = $conecta->prepare($sql)){
-            $stmt->bind_param('ss', $login, $senha);
-            $retorno = $stmt->execute();
-            $stmt->bind_result($retorno);
-            $stmt->fetch();
-            return $retorno;
-            $stmt->close();
+        if($conecta->connect_error){
+            return 0;
+        }else{
+            $sql = "SELECT COUNT(1) FROM USUARIO WHERE LOGIN = ? AND SENHA = ? ";
+            if($stmt = $conecta->prepare($sql)){
+                $stmt->bind_param('ss', $login, $senha);
+                $retorno = $stmt->execute();
+                $stmt->bind_result($retorno);
+                $stmt->fetch();
+                $stmt->close();
+                return $retorno;
+            }
+            $conecta->close();
         }
-        $conecta->close();
         return 0;
     }
     
