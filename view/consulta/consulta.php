@@ -14,13 +14,13 @@
         <div class="container">
 		<form name="sair" method="POST" >
 				<input type="submit" value="Sair" name="Sair" style="
-    margin-left: 96%;
-    margin-top: 10px;
-    color: green;
-    border-radius: 4px;
-    font-size: 19px;
-    background-color: greenyellow;">
-	</form>
+                                    margin-left: 96%;
+                                    margin-top: 10px;
+                                    color: green;
+                                    border-radius: 4px;
+                                    font-size: 19px;
+                                    background-color: greenyellow;">
+                </form>
             <h2>Tabela de Pesquisa</h2>
             <p>Pesquise por nome completo, nome de usuário, RG, E-MAIL ou Endereço: </p>  
             <input class="form-control" id="myInput" type="text" placeholder="Pesquisar..">
