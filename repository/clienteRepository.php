@@ -2,6 +2,7 @@
 
 require_once "../repository/loginRepository.php";
 require_once "../model/clienteEntity.php";
+error_reporting(0);
 
 class ClienteRepository extends LoginRepository{
     
@@ -10,6 +11,17 @@ class ClienteRepository extends LoginRepository{
         $sql = "INSERT INTO CLIENTE(NOME_COMPLETO,NOME_USUARIO,RG,EMAIL,ENDERECO) VALUES (?,?,?,?,?)";
         if($stmt = $conecta->prepare($sql)){
             $stmt->bind_param('ssiss', $nomeCompleto,$nomeUsuario,$rg,$email,$endereco);
+            $stmt->execute();
+            $stmt->close();
+        }
+        $conecta->close();
+    }
+	
+	function alteraCliente($cli){
+        $conecta = LoginRepository::iniciaConexao();
+        $sql = "UPDATE CLIENTE SET NOME_COMPLETO = ?, NOME_USUARIO = ?, RG = ?, EMAIL = ?, ENDERECO= ? WHERE ID_CLIENTE = ?";
+        if($stmt = $conecta->prepare($sql)){
+            $stmt->bind_param('ssissi', $cli->getNomeCompleto(),$cli->getNomeUsuario(),$cli->getRg(),$cli->getEmail(),$cli->getEndereco(),$cli->getCodigo());
             $stmt->execute();
             $stmt->close();
         }

@@ -8,13 +8,38 @@
         <script type="text/javascript" src="../../public/js/consultaJq.js"></script>
 
     </head>
+
     <body>
 
         <div class="container">
+		<form name="sair" method="POST" >
+				<input type="submit" value="Sair" name="Sair" style="
+    margin-left: 96%;
+    margin-top: 10px;
+    color: green;
+    border-radius: 4px;
+    font-size: 19px;
+    background-color: greenyellow;">
+	</form>
             <h2>Tabela de Pesquisa</h2>
             <p>Pesquise por nome completo, nome de usuário, RG, E-MAIL ou Endereço: </p>  
             <input class="form-control" id="myInput" type="text" placeholder="Pesquisar..">
             <br>
+			<?php 
+			session_start();
+			error_reporting(0);
+			
+			if (array_key_exists('Sair', $_POST)) {
+				$_SESSION["USUARIO_LOGADO"] = NULL;
+				header("Location: ../view/login/login.html?error=1");
+			}
+			$msg = "";
+			if($_SESSION["msg"] != null){
+				$msg = $_SESSION["msg"];
+				$_SESSION["msg"] = "";
+			}
+			?>
+			<div style=" font-size: 18px; color: green; border-radius: 20px;"><?php echo $msg; ?></div>
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
@@ -28,6 +53,10 @@
                 </thead>
                 <tbody id="myTable">
                     <?php
+					if($_SESSION["USUARIO_LOGADO"] == NULL){
+						header("Location: ../login/login.html?error=1");
+					}
+
                     require_once ("../../service/loginService.php");
                     $conecta = LoginService::iniciaConexao();
                     if ($conecta->connect_error) {
@@ -70,7 +99,7 @@
                         echo $dyn_table;
                     }
                     ?>
-                <a href="../cadastro/cadastro.html"><input type="button" value="Novo"></a>
+                <a href="../cadastro/cadastro.php"><input type="button" value="Novo"></a>
         </div>
 
         <script>
