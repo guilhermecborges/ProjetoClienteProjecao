@@ -2,6 +2,7 @@
 
 require_once "../repository/loginRepository.php";
 require_once "../model/clienteEntity.php";
+error_reporting(0);
 
 class ClienteRepository extends LoginRepository{
     
